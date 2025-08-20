@@ -17,13 +17,14 @@ while True:
     opcao = int(input("Escolha a opção desejada: "))
 
     match opcao:
-        #case 0 :
+        case 0 :
             nome_cliente = input("Digite seu nome: ").strip()
             if nome_cliente.replace("","").isalpha() == True:
                 print("Nome cadastrado com sucesso!")
             
             else:
                 print("Erro! Digite um nome válido")
+            cliente.cadastrar_cliente(nome_cliente)
                 
             
                 
@@ -40,9 +41,5 @@ while True:
             print("--- ESTOQUE ATUAL --- ")
             produto.mostrarproduto()
 
-        case 3:
-            nome_cliente=input("Nome do cliente:")
-            cliente.cadastrar_cliente(nome_cliente)
-
         case 4:
-            cliente.mostrar_clientes()
+            cliente.listar_clientes()

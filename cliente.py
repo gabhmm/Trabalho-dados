@@ -22,4 +22,4 @@ class Cliente:
         return
 
     def listar_clientes(self):
-        pass
+            print(pilha_clientes)
