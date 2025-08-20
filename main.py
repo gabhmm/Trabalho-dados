@@ -5,6 +5,7 @@ produto = Produto()
 cliente = Cliente()
 
 while True:
+    print("0 - Cadastrar Cliente: ")
     print("1 - Cadastrar Produto: ")
     print("2 - Listar produtos ")
     print("3 - Realizar venda ")
@@ -16,6 +17,17 @@ while True:
     opcao = int(input("Escolha a opção desejada: "))
 
     match opcao:
+        #case 0 :
+            nome_cliente = input("Digite seu nome: ").strip()
+            if nome_cliente.replace("","").isalpha() == True:
+                print("Nome cadastrado com sucesso!")
+            
+            else:
+                print("Erro! Digite um nome válido")
+                
+            
+                
+        
         case 1:
             produtoCadastrar = input("Digite o nome do produto: ")
             produtoQuantidade = int(input("Digite a quantidade do produto: "))
