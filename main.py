@@ -25,10 +25,7 @@ while True:
             else:
                 print("Erro! Digite um nome válido")
             cliente.cadastrar_cliente(nome_cliente)
-                
-            
-                
-        
+     
         case 1:
             produtoCadastrar = input("Digite o nome do produto: ")
             produtoQuantidade = int(input("Digite a quantidade do produto: "))
