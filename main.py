@@ -27,3 +27,10 @@ while True:
         case 2:
             print("--- ESTOQUE ATUAL --- ")
             produto.mostrarproduto()
+
+        case 3:
+            nome_cliente=input("Nome do cliente:")
+            cliente.cadastrar_cliente(nome_cliente)
+
+        case 4:
+            cliente.mostrar_clientes()

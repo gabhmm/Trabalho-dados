@@ -1,7 +1,7 @@
 
-from pilha import PilhaProduto
+from pilha import Pilha
 
-pilhaproduto = PilhaProduto()
+pilhaproduto = Pilha()
 
 class Produto:
     def __init__(self):
