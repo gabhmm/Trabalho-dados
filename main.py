@@ -1,36 +1,40 @@
 from produto import Produto
 from cliente import Cliente
-
+import os
+import time
 produto = Produto()
 cliente = Cliente()
 
+# 1. Cadastrar cliente 
+# 2. Listar clientes 
+# 3. Cadastrar produto 
+# 4. Listar produtos do estoque 
+# 5. Realizar venda 
+# 6. Visualizar fila de vendas 
+# 7. Desfazer última operação (pilha) 
+# 8. Exibir valor total do estoque 
+# 9. Exibir valor total de vendas realizadas 
+# 10. Exibir clientes e valores totais gastos 
+# 11. Sair
+
 while True:
-    print("0 - Cadastrar Cliente: ")
-    print("1 - Cadastrar Produto: ")
-    print("2 - Listar produtos ")
-    print("3 - Realizar venda ")
-    print("4 - Ver fila de vendas : ")
-    print("5 - Desfazer última operação: ")
-    print("6 - Exibir valor total do estoque : ")
-    print("7 - Exibir valor total de vendas realizadas")
-    print("8 - Sair ")
-    opcao = int(input("Escolha a opção desejada: "))
+    print("1 - Cadastrar Cliente: ")
+    print("2 - Listar Clientes: ")
+    print("3 - Cadastrar Produto: ")
+    print("4 - Listar produtos ")
+    print("5 - Realizar venda ")
+    print("6 - Ver fila de vendas : ")
+    print("7 - Desfazer última operação: ")
+    print("8 - Exibir valor total do estoque : ")
+    print("9 - Exibir valor total de vendas realizadas")
+    print("10 - Exibir clientes e valores totais gastos")
+    print("11 - Sair")
+    opcao = input("Escolha a opção desejada: ")
+
+
 
     match opcao:
-<<<<<<< HEAD
-        case 0:
-            cadastro_cliente = input("Digite seu nome: ").strip()
-            cadastro_cliente = cadastro_cliente.upper()
-
-            if not cadastro_cliente or not cadastro_cliente.replace(" ", "").isalpha():
-                print(" Nome inválido! Digite apenas letras.")
-                
-            else:
-                print(f"Olá {cadastro_cliente}, bem-vindo ao sistema!")
-                               
-        
-=======
-        case 0 :
+        case '1':
             nome_cliente = input("Digite seu nome: ").strip()
             if nome_cliente.replace("","").isalpha() == True:
                 print("Nome cadastrado com sucesso!")
@@ -39,8 +43,7 @@ while True:
                 print("Erro! Digite um nome válido")
             cliente.cadastrar_cliente(nome_cliente)
      
->>>>>>> 96c930e80db00c74661da500eb67a9fd03dd2459
-        case 1:
+        case '2':
             produtoCadastrar = input("Digite o nome do produto: ")
             produtoQuantidade = int(input("Digite a quantidade do produto: "))
             produtoPreco = float(input("Digite o preço do produto: "))
@@ -48,9 +51,14 @@ while True:
            # ID = int(input("Digite ID do produto: "))
             print("Produto Cadastrado com sucesso!")
         
-        case 2:
+        case '4':
             print("--- ESTOQUE ATUAL --- ")
             produto.mostrarproduto()
 
-        case 4:
+        case '5':
             cliente.listar_clientes()
+        case _:
+            os.system('cls')
+            input('Digite apenas um digito válido! Pressione ENTER para continuar')
+            os.system('cls')
+            continue
