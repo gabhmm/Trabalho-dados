@@ -26,6 +26,16 @@ class Produto:
         pilhaproduto.push(novo_produto)
         print(novo_produto)
 
+    def valor_total_estoque(self):
+        valor = 0
+
+        items = pilhaproduto._items
+
+        for item in items:
+            valor += (item["preco"] * item["quantidade"])
+
+        print(f'Valor total em estoque: R$ {valor:.2f} ')
+
     def mostrar_produto(self):
         print("--- ESTOQUE ATUAL --- \n")
 

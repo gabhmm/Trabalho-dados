@@ -25,6 +25,7 @@ while True:
    
         # CADASTRAR CLIENTE
         case '1':
+
             while True:
 
                 nome_cliente = input("Digite seu nome: ").strip()
@@ -45,12 +46,22 @@ while True:
 
         # CADASTRAR PRODUTOS
         case '3': 
-            produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
-            produto_quantidade = int(input("Digite a quantidade do produto: "))
-            produto_preco = float(input("Digite o preço do produto: "))
-            limpar_tela()
-            produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
-            print("Produto Cadastrado com sucesso!")
+            while True:    
+                produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
+
+                produto_quantidade = input("Digite a quantidade do produto: "))
+                try:
+                    int(produto_quantidade)
+                except ValueError:
+
+
+
+                produto_preco = float(input("Digite o preço do produto: "))
+
+                limpar_tela()
+
+                produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
+                print("Produto Cadastrado com sucesso!")
 
 
         #LISTAR PRODUTOS
@@ -78,7 +89,10 @@ while True:
 
         #EXIBIR TOTAL DO ESTOQUE
         case '8':
-            pass
+            produto.valor_total_estoque()
+            print()
+            continuar()
+            limpar_tela()
 
 
         case '9':
