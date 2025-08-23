@@ -10,7 +10,7 @@ class Produto:
         self.quantidade = None
         self.preco = None
 
-    def cadastrarproduto(self, nome, quantidade, preco):
+    def cadastrar_produto(self, nome, quantidade, preco):
         self.ID += 1
         self.nome = nome
         self.quantidade = quantidade
@@ -26,7 +26,7 @@ class Produto:
         pilhaproduto.push(novo_produto)
         print(novo_produto)
 
-    def mostrarproduto(self):
+    def mostrar_produto(self):
         itens = pilhaproduto._items
 
         for item in itens:

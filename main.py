@@ -34,7 +34,6 @@ while True:
                 print("Erro! Digite um nome válido")
 
 
-
         # LISTAR CLIENTES    
         case '2': 
             cliente.listar_clientes()
@@ -45,14 +44,14 @@ while True:
             produtoCadastrar = input("Digite o nome do produto: ")
             produtoQuantidade = int(input("Digite a quantidade do produto: "))
             produtoPreco = float(input("Digite o preço do produto: "))
-            produto.cadastrarproduto(produtoCadastrar, produtoQuantidade, produtoPreco)
+            produto.cadastrar_produto(produtoCadastrar, produtoQuantidade, produtoPreco)
            # ID = int(input("Digite ID do produto: "))
             print("Produto Cadastrado com sucesso!")
 
         #LISTAR PRODUTOS
         case '4':
             print("--- ESTOQUE ATUAL --- ")
-            produto.mostrarproduto()
+            produto.mostrar_produto()
 
 
         #REALIZAR VENDAS

@@ -1,6 +1,5 @@
 from pilha import Pilha
 
-pilha_clientes=Pilha()
 class Cliente:
     def __init__(self):
         self.id=0
@@ -22,4 +21,9 @@ class Cliente:
         return
 
     def listar_clientes(self):
-            print(pilha_clientes)
+        itens = pilha_clientes._items
+
+        for item in itens:
+            print(f"ID: {item["ID"]} | Nome: {item["nome"]}")
+
+pilha_clientes = Pilha()
