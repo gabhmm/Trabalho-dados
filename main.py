@@ -48,14 +48,8 @@ while True:
         case '3': 
             while True:    
                 produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
-
-                produto_quantidade = input("Digite a quantidade do produto: "))
-                try:
-                    int(produto_quantidade)
-                except ValueError:
-
-
-
+                
+                produto_quantidade = int(input("Digite a quantidade do produto: "))
                 produto_preco = float(input("Digite o preço do produto: "))
 
                 limpar_tela()

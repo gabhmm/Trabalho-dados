@@ -4,7 +4,7 @@
 
     2. Listar clientes | (Finalizada)
 
-    3. Cadastrar produto | (Finalizada)
+    3. Cadastrar produto | Necessario tratamentos para nao quebrar codigo
 
     4. Listar produtos do estoque | (Finalizada)
 
