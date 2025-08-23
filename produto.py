@@ -27,7 +27,9 @@ class Produto:
         print(novo_produto)
 
     def mostrar_produto(self):
-        itens = pilhaproduto._items
+        print("--- ESTOQUE ATUAL --- \n")
 
-        for item in itens:
+        items = pilhaproduto._items
+
+        for item in items:
             print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]}")

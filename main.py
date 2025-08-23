@@ -1,6 +1,6 @@
 from produto import Produto
 from cliente import Cliente
-import os
+from resources import limpar_tela, continuar
 
 produto = Produto()
 cliente = Cliente()
@@ -19,44 +19,51 @@ while True:
     print("11 - Sair")
 
     opcao = input("Escolha a opção desejada: ")
-
-
+    limpar_tela()
 
     match opcao:
    
         # CADASTRAR CLIENTE
-        case '1': 
-            nome_cliente = input("Digite seu nome: ").strip()
-            if nome_cliente.replace("","").isalpha() == True:
-                print("Nome cadastrado com sucesso!")
-                cliente.cadastrar_cliente(nome_cliente)            
-            else:
-                print("Erro! Digite um nome válido")
+        case '1':
+            while True:
+
+                nome_cliente = input("Digite seu nome: ").strip()
+                
+                if nome_cliente != '':
+                    limpar_tela()
+                    cliente.cadastrar_cliente(nome_cliente)
+                    break
+                else:
+                    limpar_tela()
+                    print("Erro! Digite um nome válido.")
+                    continue
 
 
         # LISTAR CLIENTES    
         case '2': 
             cliente.listar_clientes()
 
-
         # CADASTRAR PRODUTOS
         case '3': 
-            produtoCadastrar = input("Digite o nome do produto: ")
-            produtoQuantidade = int(input("Digite a quantidade do produto: "))
-            produtoPreco = float(input("Digite o preço do produto: "))
-            produto.cadastrar_produto(produtoCadastrar, produtoQuantidade, produtoPreco)
-           # ID = int(input("Digite ID do produto: "))
+            produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
+            produto_quantidade = int(input("Digite a quantidade do produto: "))
+            produto_preco = float(input("Digite o preço do produto: "))
+            limpar_tela()
+            produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
             print("Produto Cadastrado com sucesso!")
+
 
         #LISTAR PRODUTOS
         case '4':
-            print("--- ESTOQUE ATUAL --- ")
             produto.mostrar_produto()
+            print()
+            continuar()
+            limpar_tela()
 
 
         #REALIZAR VENDAS
         case '5':
-            pass
+            cliente_venda = input('Digite o nome do cliente que está realizando a compra: ')
 
 
         #VER FILA DE VENDAS
@@ -81,10 +88,15 @@ while True:
         case '10':
             pass
 
+        case '11':
+            limpar_tela()
+            print('Obrigado por usar nosso sistema! Volte sempre!')
+            break
 
         #SE NENHUMA OPCAO
         case _:
-            os.system('cls')
-            input('Digite um digito válido! Pressione ENTER para continuar. ')
-            os.system('cls')
+            limpar_tela()
+            print('Digite um digito válido!')
+            continuar()
+            limpar_tela()
             continue

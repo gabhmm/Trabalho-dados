@@ -21,9 +21,9 @@ class Cliente:
         return
 
     def listar_clientes(self):
-        itens = pilha_clientes._items
+        items = pilha_clientes._items
 
-        for item in itens:
+        for item in items:
             print(f"ID: {item["ID"]} | Nome: {item["nome"]}")
 
 pilha_clientes = Pilha()
