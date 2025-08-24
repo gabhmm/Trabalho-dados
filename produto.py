@@ -46,4 +46,32 @@ class Produto:
 
     def excluir_produto(self):
         pilhaproduto.pop()
-        return 
+        return
+    
+    def venda(self):
+
+        id_venda = int(input('Digite o ID do produto: '))
+        quantidade_venda = int(input('Digite a quantidade: '))
+
+
+        items = pilhaproduto._items
+
+        for i,item in enumerate(items):
+
+            if id_venda == item["ID"]:
+
+                item["quantidade"] -= quantidade_venda
+
+                if item["quantidade"] == 0:
+
+                    items.pop(i)
+
+                print(f'Valor total: R$ {(quantidade_venda*(item['preco'])):.2f}')
+
+
+
+# Escolha: 3
+# Digite o ID do produto: 101
+# Digite a quantidade: 2
+# Venda realizada com sucesso!
+# (Valor total: R$7000.00)

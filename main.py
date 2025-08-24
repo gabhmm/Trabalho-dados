@@ -49,18 +49,16 @@ while True:
 
         # CADASTRAR PRODUTOS
         case '3': 
-            while True:    
-                produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
-                
-                produto_quantidade = int(input("Digite a quantidade do produto: "))
-                produto_preco = float(input("Digite o preço do produto: "))
+            produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
 
-                limpar_tela()
+            produto_quantidade = int(input("Digite a quantidade do produto: "))
+            produto_preco = float(input("Digite o preço do produto: "))
 
-                produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
-                pilha_acoes.push("cadastrar_produto")
-                print("Produto Cadastrado com sucesso!")
-                break
+            limpar_tela()
+
+            produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
+            pilha_acoes.push("cadastrar_produto")
+            print("Produto Cadastrado com sucesso!")
 
 
         #LISTAR PRODUTOS
@@ -73,8 +71,7 @@ while True:
 
         #REALIZAR VENDAS
         case '5':
-            cliente_venda = input('Digite o nome do cliente que está realizando a compra: ')
-
+            produto.venda()
 
         #VER FILA DE VENDAS
         case '6':
@@ -83,6 +80,7 @@ while True:
 
         #DESFAZER ULTIMA OPERACAO
         case '7':
+
             ultima_acao=pilha_acoes.peek()
             if ultima_acao=="cadastrar_cliente":
                 cliente.excluir_conta()

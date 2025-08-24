@@ -8,12 +8,12 @@ class Pilha:
         self._items.append(item)  # adicionando um valor no final
 
     # pop
-    def pop(self):
+    def pop(self,valor = None):
         # retorna um erro quando a lista estiver vazia
         if self.is_empty():
             raise IndexError("Pilha vazia")
 
-        return self._items.pop()
+        return self._items.pop(valor)
 
     # peek
     def peek(self):

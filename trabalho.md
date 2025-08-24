@@ -12,7 +12,7 @@
 
     6. Visualizar fila de vendas 
 
-    7. Desfazer última operação (pilha) 
+    7. Desfazer última operação (pilha) | (Finalizada)
 
     8. Exibir valor total do estoque | (Finalizada)
 
