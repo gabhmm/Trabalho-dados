@@ -1,9 +1,11 @@
 from produto import Produto
 from cliente import Cliente
+from pilha import Pilha
 from resources import limpar_tela, continuar
 
 produto = Produto()
 cliente = Cliente()
+pilha_acoes = Pilha()
 
 while True:
     print("1 - Cadastrar Cliente: ")
@@ -33,6 +35,7 @@ while True:
                 if nome_cliente != '':
                     limpar_tela()
                     cliente.cadastrar_cliente(nome_cliente)
+                    pilha_acoes.push("cadastrar_cliente")
                     break
                 else:
                     limpar_tela()
@@ -55,7 +58,9 @@ while True:
                 limpar_tela()
 
                 produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
+                pilha_acoes.push("cadastrar_produto")
                 print("Produto Cadastrado com sucesso!")
+                break
 
 
         #LISTAR PRODUTOS
@@ -78,7 +83,15 @@ while True:
 
         #DESFAZER ULTIMA OPERACAO
         case '7':
-            pass
+            ultima_acao=pilha_acoes.peek()
+            if ultima_acao=="cadastrar_cliente":
+                cliente.excluir_conta()
+                pilha_acoes.pop()
+                print(f"Cliente excluido!")
+            if ultima_acao=="cadastrar_produto":
+                produto.excluir_produto()
+                pilha_acoes.pop()
+                print(f"Produto Excluido")
 
 
         #EXIBIR TOTAL DO ESTOQUE

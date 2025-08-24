@@ -26,4 +26,12 @@ class Cliente:
         for item in items:
             print(f"ID: {item["ID"]} | Nome: {item["nome"]}")
 
+    def ultimo_cliente(self):
+        ultimo_cliente = pilha_clientes.peek()
+        return ultimo_cliente
+
+    def excluir_conta(self):
+        pilha_clientes.pop()
+        return 
+    
 pilha_clientes = Pilha()

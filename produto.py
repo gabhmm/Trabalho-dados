@@ -43,3 +43,7 @@ class Produto:
 
         for item in items:
             print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]}")
+
+    def excluir_produto(self):
+        pilhaproduto.pop()
+        return 
