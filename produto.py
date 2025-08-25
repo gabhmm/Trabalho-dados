@@ -80,7 +80,8 @@ class Produto:
                     'preco': valor_gasto     
                 }
                 cliente.venda(cliente_venda,valor_gasto)
-                fila_venda.enqueue(nova_venda)     
+                fila_venda.enqueue(nova_venda)
+                print("Venda Realizada com sucesso!")
                 print(f'Valor total: R$ {valor_gasto:.2f}')
 
 
@@ -91,7 +92,12 @@ class Produto:
         for item in items:
             print(f"Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Valor Total: {item["preco"]}")
 
-
+    def total_valor_gasto(self):
+        items = fila_venda._items
+        total=0
+        for item in items:
+            total+=item["preco"]
+        print(f"Total de vendas: {total:.2f}")
 # Escolha: 3
 # Digite o ID do produto: 101
 # Digite a quantidade: 2

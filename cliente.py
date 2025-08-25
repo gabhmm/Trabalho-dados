@@ -46,4 +46,4 @@ class Cliente:
             if id == item["ID"]:
                 item["gastos"] += valor
 
-            print(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")
+            return(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")

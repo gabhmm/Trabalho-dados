@@ -120,13 +120,15 @@ while True:
 
 
         case '9':
-            pass
+            limpar_tela()
+            produto.total_valor_gasto()
+
 
         #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
         case '10':
-            limpar_tela
+            limpar_tela()
             print("--- CLIENTES E VALORES GASTOS--- \n")            
-            cliente.venda()
+            print(cliente.venda())
             continuar()
             limpar_tela()
 
