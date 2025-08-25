@@ -75,9 +75,11 @@ while True:
 
         #VER FILA DE VENDAS
         case '6':
-            pass
-
-
+            limpar_tela()
+            print("--- VENDAS REALIZADAS --- \n")
+            produto.todos_itens_vendidos()
+            continuar()
+            limpar_tela()
         #DESFAZER ULTIMA OPERACAO
         case '7':
 
@@ -105,7 +107,7 @@ while True:
 
         #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
         case '10':
-            produto.todos_itens_vendidos()
+            pass
             
 
         case '11':
