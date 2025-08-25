@@ -1,5 +1,7 @@
 from pilha import Pilha
 
+pilha_clientes = Pilha()
+
 class Cliente:
     def __init__(self):
         self.id=0
@@ -36,8 +38,12 @@ class Cliente:
         pilha_clientes.pop()
         return 
     
-    def venda(self,valor):
-        self.gasto += valor
-        return self.gasto
+    def venda(self,id=None,valor=None):
+        items = pilha_clientes._items
 
-pilha_clientes = Pilha()
+        for item in items:
+
+            if id == item["ID"]:
+                item["gastos"] += valor
+
+            print(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")

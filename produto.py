@@ -71,7 +71,7 @@ class Produto:
                 if item["quantidade"] == 0:
 
                     items.pop(i)
-                    
+
                 valor_gasto = quantidade_venda*(item['preco'])
 
                 nova_venda = {
@@ -79,9 +79,8 @@ class Produto:
                     'quantidade': quantidade_venda,
                     'preco': valor_gasto     
                 }
-        
-                fila_venda.enqueue(nova_venda)
-                cliente.venda(valor_gasto)          
+                cliente.venda(cliente_venda,valor_gasto)
+                fila_venda.enqueue(nova_venda)     
                 print(f'Valor total: R$ {valor_gasto:.2f}')
 
 

@@ -50,9 +50,26 @@ while True:
         # CADASTRAR PRODUTOS
         case '3': 
             produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
-
-            produto_quantidade = int(input("Digite a quantidade do produto: "))
-            produto_preco = float(input("Digite o preço do produto: "))
+            
+            while True:
+                try:
+                    produto_quantidade = int(input("Digite a quantidade do produto: "))
+                    if produto_quantidade > 0:
+                        break
+                    else:
+                        print("A quantidade deve ser maior que zero.")
+                except ValueError:
+                    print("Por favor, digite apenas números inteiros para a quantidade.")
+            
+            while True:
+                try:
+                    produto_preco = float(input("Digite o valor do produto: ").replace(",", "."))
+                    if produto_preco >= 0:
+                        break
+                    else:
+                        print("O valor deve ser maior que zero.")
+                except ValueError:
+                    print("Por favor, digite apenas números para o valor do produto.")        
 
             limpar_tela()
 
@@ -107,8 +124,11 @@ while True:
 
         #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
         case '10':
-            pass
-            
+            limpar_tela
+            print("--- CLIENTES E VALORES GASTOS--- \n")            
+            cliente.venda()
+            continuar()
+            limpar_tela()
 
         case '11':
             limpar_tela()
