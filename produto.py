@@ -1,7 +1,10 @@
-
+from cliente import Cliente
 from pilha import Pilha
+from fila import Fila
 
+fila_venda = Fila()
 pilhaproduto = Pilha()
+cliente = Cliente()
 
 class Produto:
     def __init__(self):
@@ -49,11 +52,12 @@ class Produto:
         return
     
     def venda(self):
-
+        
+        cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
         id_venda = int(input('Digite o ID do produto: '))
         quantidade_venda = int(input('Digite a quantidade: '))
-
-
+        
+        valor_gasto = 0
         items = pilhaproduto._items
 
         for i,item in enumerate(items):
@@ -66,8 +70,14 @@ class Produto:
 
                     items.pop(i)
 
-                print(f'Valor total: R$ {(quantidade_venda*(item['preco'])):.2f}')
+                fila_venda.enqueue(item)
+                valor_gasto = quantidade_venda*(item['preco'])
+                cliente.venda(valor_gasto)          
+                print(f'Valor total: R$ {valor_gasto:.2f}')
 
+    def todos_itens_vendidos(self):
+        print(fila_venda)
+        return
 
 
 # Escolha: 3

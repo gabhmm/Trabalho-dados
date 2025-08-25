@@ -105,7 +105,8 @@ while True:
 
         #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
         case '10':
-            pass
+            produto.todos_itens_vendidos()
+            
 
         case '11':
             limpar_tela()

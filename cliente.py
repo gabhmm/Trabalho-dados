@@ -5,6 +5,7 @@ class Cliente:
         self.id=0
         self.nome=None
         self.clientes={}
+        self.gasto = 0
 
     def cadastrar_cliente(self,nome):
         self.id+=1
@@ -34,4 +35,9 @@ class Cliente:
         pilha_clientes.pop()
         return 
     
+    def venda(self,valor):
+        self.gasto += valor
+        
+        return self.gasto
+
 pilha_clientes = Pilha()

@@ -4,9 +4,6 @@ class Fila:
         self._items = []
 
     def enqueue(self, item):
-        
-        if item in self._items:
-            raise ValueError("Item ja esta na fila")
 
         self._items.insert(0, item)
 
