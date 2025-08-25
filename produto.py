@@ -13,6 +13,8 @@ class Produto:
         self.quantidade = None
         self.preco = None
 
+
+
     def cadastrar_produto(self, nome, quantidade, preco):
         self.ID += 1
         self.nome = nome
@@ -56,7 +58,7 @@ class Produto:
         cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
         id_venda = int(input('Digite o ID do produto: '))
         quantidade_venda = int(input('Digite a quantidade: '))
-        
+
         valor_gasto = 0
         items = pilhaproduto._items
 
@@ -69,15 +71,25 @@ class Produto:
                 if item["quantidade"] == 0:
 
                     items.pop(i)
-
-                fila_venda.enqueue(item)
+                    
                 valor_gasto = quantidade_venda*(item['preco'])
+
+                nova_venda = {
+                    'nome': item["nome"],
+                    'quantidade': quantidade_venda,
+                    'preco': valor_gasto     
+                }
+
+                fila_venda.enqueue(nova_venda)
                 cliente.venda(valor_gasto)          
                 print(f'Valor total: R$ {valor_gasto:.2f}')
 
     def todos_itens_vendidos(self):
-        print(fila_venda)
-        return
+         
+        items = fila_venda._items
+
+        for item in items:
+            print(f"Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Valor Total: {item["preco"]}")
 
 
 # Escolha: 3
