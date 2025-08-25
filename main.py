@@ -18,7 +18,8 @@ while True:
     print("8 - Exibir valor total do estoque : ")
     print("9 - Exibir valor total de vendas realizadas")
     print("10 - Exibir clientes e valores totais gastos")
-    print("11 - Sair")
+    print("11 - Pesquisar Produto")
+    print("12 - Sair")
 
     opcao = input("Escolha a opção desejada: ")
     limpar_tela()
@@ -133,9 +134,15 @@ while True:
             limpar_tela()
 
         case '11':
+            pesquisaID = input("Digite ID para fazer a pesquisa do produto: ")
+            produto.pesquisar_produto(pesquisaID)
+
+            pass
+        case '12':
             limpar_tela()
             print('Obrigado por usar nosso sistema! Volte sempre!')
             break
+            
 
         #SE NENHUMA OPCAO
         case _:

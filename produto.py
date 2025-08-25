@@ -8,7 +8,7 @@ cliente = Cliente()
 
 class Produto:
     def __init__(self):
-        self.ID = 100
+        self.ID = 0
         self.nome = None
         self.quantidade = None
         self.preco = None
@@ -98,6 +98,21 @@ class Produto:
         for item in items:
             total+=item["preco"]
         print(f"Total de vendas: {total:.2f}")
+
+
+    def pesquisar_produto(self, ID):
+        print("Oi")
+
+        items = pilhaproduto._items
+
+        print("items: ", items)
+
+        for i in items:
+            if(ID == self.ID):
+   
+
+
+
 # Escolha: 3
 # Digite o ID do produto: 101
 # Digite a quantidade: 2

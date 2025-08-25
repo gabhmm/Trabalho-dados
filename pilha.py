@@ -13,6 +13,9 @@ class Pilha:
         if self.is_empty():
             raise IndexError("Pilha vazia")
 
+        if valor is None:
+            return self._items.pop()
+        
         return self._items.pop(valor)
 
     # peek
@@ -38,3 +41,4 @@ class Pilha:
     # clear
     def clear(self):
         self._items = []
+

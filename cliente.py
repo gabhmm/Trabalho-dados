@@ -36,6 +36,7 @@ class Cliente:
 
     def excluir_conta(self):
         pilha_clientes.pop()
+        print("vai excluir")
         return 
     
     def venda(self,id=None,valor=None):
