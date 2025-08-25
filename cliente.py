@@ -14,6 +14,7 @@ class Cliente:
         novo_cliente = {
             'ID': self.id,
             'nome': self.nome,
+            'gastos':self.gasto
         }
 
         pilha_clientes.push(novo_cliente)
@@ -37,7 +38,6 @@ class Cliente:
     
     def venda(self,valor):
         self.gasto += valor
-        
         return self.gasto
 
 pilha_clientes = Pilha()

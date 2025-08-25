@@ -8,9 +8,9 @@
 
     4. Listar produtos do estoque | (Finalizada)
 
-    5. Realizar venda 
+    5. Realizar venda (Meio finalizada)
 
-    6. Visualizar fila de vendas 
+    6. Visualizar fila de vendas (Finalizada)
 
     7. Desfazer última operação (pilha) | (Finalizada)
 

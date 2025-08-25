@@ -79,10 +79,11 @@ class Produto:
                     'quantidade': quantidade_venda,
                     'preco': valor_gasto     
                 }
-
+        
                 fila_venda.enqueue(nova_venda)
                 cliente.venda(valor_gasto)          
                 print(f'Valor total: R$ {valor_gasto:.2f}')
+
 
     def todos_itens_vendidos(self):
          
