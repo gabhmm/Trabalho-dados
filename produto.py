@@ -58,14 +58,11 @@ class Produto:
         cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
         id_venda = int(input('Digite o ID do produto: '))
         quantidade_venda = int(input('Digite a quantidade: '))
-
         valor_gasto = 0
         items = pilhaproduto._items
 
         for i,item in enumerate(items):
-
             if id_venda == item["ID"]:
-
                 item["quantidade"] -= quantidade_venda
 
                 if item["quantidade"] == 0:
@@ -84,6 +81,13 @@ class Produto:
                 print("Venda Realizada com sucesso!")
                 print(f'Valor total: R$ {valor_gasto:.2f}')
 
+    def desfazer_venda(self):
+        produto=fila_venda.front()
+        fila_venda.dequeue()
+        valor=produto['preco']
+        cliente.desfazer_venda(valor)
+        print("Venda desfeita")
+
 
     def todos_itens_vendidos(self):
          
@@ -101,14 +105,7 @@ class Produto:
 
 
     def pesquisar_produto(self, ID):
-        print("Oi")
-
-        items = pilhaproduto._items
-
-        print("items: ", items)
-
-        for i in items:
-            if(ID == self.ID):
+        pass
    
 
 
@@ -117,4 +114,4 @@ class Produto:
 # Digite o ID do produto: 101
 # Digite a quantidade: 2
 # Venda realizada com sucesso!
-# (Valor total: R$7000.00)
+# (Valor total: R$7000.00) 

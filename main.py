@@ -90,6 +90,7 @@ while True:
         #REALIZAR VENDAS
         case '5':
             produto.venda()
+            pilha_acoes.push("venda")
 
         #VER FILA DE VENDAS
         case '6':
@@ -98,6 +99,7 @@ while True:
             produto.todos_itens_vendidos()
             continuar()
             limpar_tela()
+            
         #DESFAZER ULTIMA OPERACAO
         case '7':
 
@@ -108,6 +110,10 @@ while True:
                 print(f"Cliente excluido!")
             if ultima_acao=="cadastrar_produto":
                 produto.excluir_produto()
+                pilha_acoes.pop()
+                print(f"Produto Excluido")
+            if ultima_acao=="venda":
+                produto.desfazer_venda()
                 pilha_acoes.pop()
                 print(f"Produto Excluido")
 
