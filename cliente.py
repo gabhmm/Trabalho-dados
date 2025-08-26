@@ -59,6 +59,11 @@ class Cliente:
 
             print("Cliente não encontrado!")
 
+    def gastos(self):
+        items = pilha_clientes._items
+        for item in items:
+            print(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")
+            
     def desfazer_venda(self,valor=None):
         id=pilha_id.peek()
         pilha_id.pop()

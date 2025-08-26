@@ -139,7 +139,7 @@ while True:
         case '10':
             limpar_tela()
             print("--- CLIENTES E VALORES GASTOS--- \n")            
-            print(cliente.venda())
+            cliente.gastos()
             continuar()
             limpar_tela()
 

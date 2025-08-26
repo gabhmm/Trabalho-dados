@@ -62,13 +62,17 @@ class Produto:
         return False
     
     def venda(self):
-        cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
-        if not cliente.verificar_cliente(cliente_venda):
-            print("Cliente não encontrado!")
+        try:
+            cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
+            if not cliente.verificar_cliente(cliente_venda):                    
+                print("Cliente não encontrado!")
+                return            
+            id_venda = int(input('Digite o ID do produto: '))
+            quantidade_venda = int(input('Digite a quantidade: '))
+        except:
+            print("Digite valores válidos!")
             return
-        
-        id_venda = int(input('Digite o ID do produto: '))
-        quantidade_venda = int(input('Digite a quantidade: '))
+            
         valor_gasto = 0
         items = pilhaproduto._items
 
