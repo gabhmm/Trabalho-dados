@@ -29,7 +29,8 @@ class Produto:
         }
 
         pilhaproduto.push(novo_produto)
-        print(novo_produto)
+        print("Produto Cadastrado com sucesso!")
+        print(f'ID gerado: {novo_produto["ID"]}')
 
     def valor_total_estoque(self):
         valor = 0

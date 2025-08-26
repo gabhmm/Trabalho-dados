@@ -76,7 +76,6 @@ while True:
 
             produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
             pilha_acoes.push("cadastrar_produto")
-            print("Produto Cadastrado com sucesso!")
 
 
         #LISTAR PRODUTOS
