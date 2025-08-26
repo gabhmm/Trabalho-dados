@@ -65,7 +65,7 @@ while True:
             while True:
                 try:
                     produto_preco = float(input("Digite o valor do produto: ").replace(",", "."))
-                    if produto_preco >= 0:
+                    if produto_preco > 0:
                         break
                     else:
                         print("O valor deve ser maior que zero.")
@@ -140,10 +140,9 @@ while True:
             limpar_tela()
 
         case '11':
-            pesquisaID = input("Digite ID para fazer a pesquisa do produto: ")
-            produto.pesquisar_produto(pesquisaID)
+            produto.pesquisar_produto()
 
-            pass
+            #pass
         case '12':
             limpar_tela()
             print('Obrigado por usar nosso sistema! Volte sempre!')

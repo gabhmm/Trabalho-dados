@@ -60,8 +60,13 @@ class Produto:
         quantidade_venda = int(input('Digite a quantidade: '))
         valor_gasto = 0
         items = pilhaproduto._items
-
+        if not cliente.verificar_cliente(cliente_venda):
+            print("Cliente não encontrado!")
+            return
         for i,item in enumerate(items):
+            if item["quantidade"] < quantidade_venda:
+                print("Quantidade de produtos insuficientes")
+                break
             if id_venda == item["ID"]:
                 item["quantidade"] -= quantidade_venda
 
@@ -80,6 +85,10 @@ class Produto:
                 fila_venda.enqueue(nova_venda)
                 print("Venda Realizada com sucesso!")
                 print(f'Valor total: R$ {valor_gasto:.2f}')
+                return
+
+            print("produto nao encontrado")
+            return
 
     def desfazer_venda(self):
         produto=fila_venda.front()
@@ -104,9 +113,19 @@ class Produto:
         print(f"Total de vendas: {total:.2f}")
 
 
-    def pesquisar_produto(self, ID):
-        pass
+    def pesquisar_produto(self):
+        pesquisaID = int(input("Digite ID para fazer a pesquisa do produto: "))
+        pesquisaProdutoID = pilhaproduto._items
+
+        for i in pesquisaProdutoID:
+            if pesquisaID == i["ID"]:
+                print(i)
+            else:
+                print("errou")
+
+     #   pass
    
+
 
 
 

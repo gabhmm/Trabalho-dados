@@ -40,16 +40,23 @@ class Cliente:
         print("vai excluir")
         return 
     
+    def verificar_cliente(self,id=None):
+        items = pilha_clientes._items
+        for item in items:
+            if id == item["ID"]:
+                return True
+            return False
     def venda(self,id=None,valor=None):
         items = pilha_clientes._items
-
         for item in items:
+            
 
             if id == item["ID"]:
                 pilha_id.push(id)
                 item["gastos"] += valor
+                return(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")
 
-            return(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")
+            print("Cliente não encontrado!")
 
     def desfazer_venda(self,valor=None):
         id=pilha_id.peek()
