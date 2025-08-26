@@ -61,7 +61,7 @@ class Cliente:
 
     def desfazer_venda(self,valor=None):
         id=pilha_id.peek()
-        pilha_id.pop(id)
+        pilha_id.pop()
 
         items = pilha_clientes._items
 

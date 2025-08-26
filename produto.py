@@ -98,7 +98,7 @@ class Produto:
                 print(f'Valor total: R$ {valor_gasto:.2f}')
                 return
 
-            return
+
         
         print("Produto não encontrado")
 
