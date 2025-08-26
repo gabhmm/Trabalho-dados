@@ -66,10 +66,12 @@ class Produto:
         if not cliente.verificar_cliente(cliente_venda):
             print("Cliente não encontrado!")
             return
+        
         id_venda = int(input('Digite o ID do produto: '))
         quantidade_venda = int(input('Digite a quantidade: '))
         valor_gasto = 0
         items = pilhaproduto._items
+
         for i,item in enumerate(items):
             if id_venda == item["ID"]:
                 print(item)
@@ -95,8 +97,9 @@ class Produto:
                 print(f'Valor total: R$ {valor_gasto:.2f}')
                 return
 
-            print("Produto não encontrado")
             return
+        
+        print("Produto não encontrado")
 
     def desfazer_venda(self):
         produto=fila_venda.front()
@@ -131,7 +134,6 @@ class Produto:
             else:
                 print("errou")
 
-     #   pass
    
 
 
