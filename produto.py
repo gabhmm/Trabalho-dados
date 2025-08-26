@@ -53,21 +53,29 @@ class Produto:
         pilhaproduto.pop()
         return
     
+    def verificar_produto(self,ID=None):
+        items = pilhaproduto._items
+        for item in items:
+            if ID == item["ID"]:
+                return True
+        return False
+    
     def venda(self):
         
         cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
+        if not cliente.verificar_cliente(cliente_venda):
+            print("Cliente não encontrado!")
+            return
         id_venda = int(input('Digite o ID do produto: '))
         quantidade_venda = int(input('Digite a quantidade: '))
         valor_gasto = 0
         items = pilhaproduto._items
-        if not cliente.verificar_cliente(cliente_venda):
-            print("Cliente não encontrado!")
-            return
         for i,item in enumerate(items):
-            if item["quantidade"] < quantidade_venda:
-                print("Quantidade de produtos insuficientes")
-                break
             if id_venda == item["ID"]:
+                print(item)
+                if item["quantidade"] < quantidade_venda:
+                    print("Quantidade de produtos insuficientes")
+                    break
                 item["quantidade"] -= quantidade_venda
 
                 if item["quantidade"] == 0:
@@ -87,7 +95,7 @@ class Produto:
                 print(f'Valor total: R$ {valor_gasto:.2f}')
                 return
 
-            print("produto nao encontrado")
+            print("Produto não encontrado")
             return
 
     def desfazer_venda(self):

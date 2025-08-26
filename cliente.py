@@ -40,12 +40,13 @@ class Cliente:
         print("vai excluir")
         return 
     
-    def verificar_cliente(self,id=None):
+    def verificar_cliente(self,ID=None):
         items = pilha_clientes._items
         for item in items:
-            if id == item["ID"]:
+            if ID == item["ID"]:
                 return True
-            return False
+        return False
+    
     def venda(self,id=None,valor=None):
         items = pilha_clientes._items
         for item in items:

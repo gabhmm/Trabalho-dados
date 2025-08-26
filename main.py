@@ -102,21 +102,22 @@ while True:
             
         #DESFAZER ULTIMA OPERACAO
         case '7':
-
-            ultima_acao=pilha_acoes.peek()
-            if ultima_acao=="cadastrar_cliente":
-                cliente.excluir_conta()
-                pilha_acoes.pop()
-                print(f"Cliente excluido!")
-            if ultima_acao=="cadastrar_produto":
-                produto.excluir_produto()
-                pilha_acoes.pop()
-                print(f"Produto Excluido")
-            if ultima_acao=="venda":
-                produto.desfazer_venda()
-                pilha_acoes.pop()
-                print(f"Produto Excluido")
-
+            if pilha_acoes.is_empty():
+                continue
+            else:
+                ultima_acao=pilha_acoes.peek()
+                if ultima_acao=="cadastrar_cliente":
+                    cliente.excluir_conta()
+                    pilha_acoes.pop()
+                    print(f"Cliente excluido!")
+                if ultima_acao=="cadastrar_produto":
+                    produto.excluir_produto()
+                    pilha_acoes.pop()
+                    print(f"Produto Excluido")
+                if ultima_acao=="venda":
+                    produto.desfazer_venda()
+                    pilha_acoes.pop()
+                    print(f"Produto Excluido")
 
         #EXIBIR TOTAL DO ESTOQUE
         case '8':
