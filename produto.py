@@ -102,9 +102,16 @@ class Produto:
         print("Produto não encontrado")
 
     def desfazer_venda(self):
-        produto=fila_venda.front()
+        produto = fila_venda.front()
+        items = pilhaproduto._items
+
+        for item in items:
+            if item["nome"] == produto["nome"]:
+                item["quantidade"] += produto["quantidade"]
+                break
+
         fila_venda.dequeue()
-        valor=produto['preco']
+        valor = produto['preco']
         cliente.desfazer_venda(valor)
         print("Venda desfeita")
 
