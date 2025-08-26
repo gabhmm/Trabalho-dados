@@ -103,6 +103,10 @@ while True:
         #DESFAZER ULTIMA OPERACAO
         case '7':
             if pilha_acoes.is_empty():
+                print("Não existe alteração feita")
+                limpar_tela()
+                continuar()
+                limpar_tela()
                 continue
             else:
                 ultima_acao=pilha_acoes.peek()
