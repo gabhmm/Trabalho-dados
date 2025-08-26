@@ -69,3 +69,4 @@ class Cliente:
             
             if id == item["ID"]:
                 item["gastos"] -= valor
+                
