@@ -37,15 +37,14 @@ class Cliente:
 
     def excluir_conta(self):
         pilha_clientes.pop()
-        print("vai excluir")
         return 
     
     def verificar_cliente(self,ID=None):
         items = pilha_clientes._items
         for item in items:
-            if ID == item["ID"]:
-                return True
-        return False
+            if ID not in item["ID"]:
+                return False
+        return True
     
     def venda(self,id=None,valor=None):
         items = pilha_clientes._items

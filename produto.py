@@ -48,7 +48,7 @@ class Produto:
         items = pilhaproduto._items
 
         for item in items:
-            print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]}")
+            print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]:.2f}")
 
     def excluir_produto(self):
         pilhaproduto.pop()
@@ -69,6 +69,9 @@ class Produto:
                 return            
             id_venda = int(input('Digite o ID do produto: '))
             quantidade_venda = int(input('Digite a quantidade: '))
+            if quantidade_venda<=0:
+                print("A quatidade deve ser maior que zero!")
+                return
         except:
             print("Digite valores válidos!")
             return
@@ -78,10 +81,9 @@ class Produto:
 
         for i,item in enumerate(items):
             if id_venda == item["ID"]:
-                print(item)
                 if item["quantidade"] < quantidade_venda:
                     print("Quantidade de produtos insuficientes")
-                    break
+                    return
                 item["quantidade"] -= quantidade_venda
 
                 if item["quantidade"] == 0:

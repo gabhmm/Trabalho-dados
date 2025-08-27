@@ -8,14 +8,14 @@ cliente = Cliente()
 pilha_acoes = Pilha()
 
 while True:
-    print("1 - Cadastrar Cliente: ")
-    print("2 - Listar Clientes: ")
-    print("3 - Cadastrar Produto: ")
+    print("1 - Cadastrar Cliente ")
+    print("2 - Listar Clientes ")
+    print("3 - Cadastrar Produto ")
     print("4 - Listar produtos ")
     print("5 - Realizar venda ")
-    print("6 - Ver fila de vendas : ")
-    print("7 - Desfazer última operação: ")
-    print("8 - Exibir valor total do estoque : ")
+    print("6 - Ver fila de vendas ")
+    print("7 - Desfazer última operação ")
+    print("8 - Exibir valor total do estoque ")
     print("9 - Exibir valor total de vendas realizadas")
     print("10 - Exibir clientes e valores totais gastos")
     print("11 - Pesquisar Produto")
@@ -45,8 +45,13 @@ while True:
 
 
         # LISTAR CLIENTES    
-        case '2': 
-            cliente.listar_clientes()
+        case '2':
+            limpar_tela()
+            print("LISTA DE CLIENTES:\n")
+            cliente.listar_clientes()          
+            continuar()
+            limpar_tela()
+
 
         # CADASTRAR PRODUTOS
         case '3': 
@@ -90,6 +95,8 @@ while True:
         case '5':
             produto.venda()
             pilha_acoes.push("venda")
+            continuar()
+            limpar_tela()
 
         #VER FILA DE VENDAS
         case '6':
@@ -120,7 +127,7 @@ while True:
                 if ultima_acao=="venda":
                     produto.desfazer_venda()
                     pilha_acoes.pop()
-                    print(f"Produto Excluido")
+
 
         #EXIBIR TOTAL DO ESTOQUE
         case '8':
@@ -132,7 +139,11 @@ while True:
 
         case '9':
             limpar_tela()
+            print("Total de vendas realizadas:")
             produto.total_valor_gasto()
+            continuar()
+            limpar_tela()
+
 
 
         #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
