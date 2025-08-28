@@ -64,7 +64,7 @@ class Produto:
     def venda(self):
         try:
             cliente_venda = int(input('Digite o ID do cliente que está realizando a compra: '))
-            if not cliente.verificar_cliente(cliente_venda):                    
+            if cliente.verificar_cliente(cliente_venda) is False:                    
                 print("Cliente não encontrado!")
                 return            
             id_venda = int(input('Digite o ID do produto: '))

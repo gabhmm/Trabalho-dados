@@ -41,10 +41,13 @@ class Cliente:
     
     def verificar_cliente(self,ID=None):
         items = pilha_clientes._items
+        achado=False
         for item in items:
-            if ID not in item["ID"]:
-                return False
-        return True
+            if item["ID"]==ID:
+                achado=True
+                break
+                
+        return achado
     
     def venda(self,id=None,valor=None):
         items = pilha_clientes._items
@@ -56,7 +59,7 @@ class Cliente:
                 item["gastos"] += valor
                 return(f"Nome: {item["nome"]} | Valor Gasto: R$ {item["gastos"]:.2f}")
 
-            print("Cliente não encontrado!")
+
 
     def gastos(self):
         items = pilha_clientes._items
