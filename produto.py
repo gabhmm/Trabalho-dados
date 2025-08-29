@@ -147,9 +147,9 @@ class Produto:
 
         for i in pesquisaProdutoID:
             if pesquisaID == i["ID"]:
-                print(i)
-            else:
-                print("errou")
+                print(f"Produto: {i["nome"]} encontrado. Quantidade: {i["quantidade"]}. Preço: R${i["preco"]}.")
+                return
+        print("O produto solicitado não está em nosso estoque.")
 
    
 
