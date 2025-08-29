@@ -18,9 +18,10 @@ while True:
     print("8 - Exibir valor total do estoque ")
     print("9 - Exibir valor total de vendas realizadas")
     print("10 - Exibir clientes e valores totais gastos")
-    print("11 - Pesquisar Produto por ID")
-    print("12 - Pesquisar produto por nome")
-    print("13 - Salvar em arquivo de texto")
+  #  print("11 - Pesquisar Produto por ID")
+    print("11 - Pesquisar Produto por ID ou NOME")
+   # print("12 - Pesquisar produto por nome")
+   # print("13 - Salvar em arquivo de texto")
     print("14 - Sair")
 
     opcao = input("Escolha a opção desejada: ")
@@ -83,6 +84,7 @@ while True:
 
             produto.cadastrar_produto(produto_cadastrar, produto_quantidade, produto_preco)
             pilha_acoes.push("cadastrar_produto")
+            produto.salvar_txt()
 
 
         #LISTAR PRODUTOS
@@ -156,13 +158,13 @@ while True:
             limpar_tela()
 
         case '11':
-            produto.pesquisar_produto_id()
+            produto.pesquisar_produto_id_nome()
 
-        case '12':
-            produto.pesquisar_produto_nome()
+        # case '12':
+        #     produto.pesquisar_produto_nome()
         
-        case '13':
-            produto.salvar_txt()
+#        case '13':
+#            produto.salvar_txt()
 
         case '14':
             limpar_tela()

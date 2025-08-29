@@ -9,12 +9,11 @@ cliente = Cliente()
 pilha_produtos_deletados=Pilha()
 class Produto:
     def __init__(self):
-        self.ID = 0
-        self.nome = None
-        self.quantidade = None
-        self.preco = None
-
-
+     #   self.ID = 0
+      #  self.nome = None
+      #  self.quantidade = None
+      #  self.preco = None
+        self.carregar_txt()
 
     def cadastrar_produto(self, nome, quantidade, preco):
         self.ID += 1
@@ -46,10 +45,11 @@ class Produto:
     def mostrar_produto(self):
         print("--- ESTOQUE ATUAL --- \n")
 
-        items = pilhaproduto._items
 
-        for item in items:
-            print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]:.2f}")
+        # items = pilhaproduto._items
+
+        # for item in items:
+        #     print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]:.2f}")
 
     def excluir_produto(self):
         pilhaproduto.pop()
@@ -100,6 +100,7 @@ class Produto:
                 }
                 cliente.venda(cliente_venda,valor_gasto)
                 fila_venda.enqueue(nova_venda)
+                self.salvar_txt()
                 print("Venda Realizada com sucesso!")
                 print(f'Valor total: R$ {valor_gasto:.2f}')
                 return
@@ -122,6 +123,7 @@ class Produto:
                 break
 
         fila_venda.dequeue()
+        self.salvar_txt()
         valor = produto['preco']
         cliente.desfazer_venda(valor)
         print("Venda desfeita")
@@ -142,35 +144,52 @@ class Produto:
         print(f"Total de vendas: {total:.2f}")
 
 
-    def pesquisar_produto_id(self):
-        pesquisaID = int(input("Digite ID para fazer a pesquisa do produto: "))
+    def pesquisar_produto_id_nome(self):
+        pesquisa = input("Digite ID ou NOME para fazer a pesquisa do produto: ")
         pesquisaProdutoID = pilhaproduto._items
-
-        for i in pesquisaProdutoID:
-            if pesquisaID == i["ID"]:
-                print(f"Produto: {i["nome"]} encontrado. Quantidade: {i["quantidade"]}. Preço: R${i["preco"]}.")
-                return
-        print("O produto solicitado não está em nosso estoque.")
-
-    def pesquisar_produto_nome(self):
-        pesquisa_nome=input("Digite o nome para pesquisar o produto: ")
         pesquisa_produto_nome=pilhaproduto._items
 
-        for item in pesquisa_produto_nome:
-            if pesquisa_nome == item["nome"]:
-                print(f"ID do produto {item["nome"]}: {item["ID"]}. Quantidade: {item["quantidade"]}. Preço: R${item["preco"]}.\n")
-                return
-        print("O produto solicitado não está em nosso estoque.")
+        if pesquisa.isdigit():
+            pesquisaID = int(pesquisa)
+            for item in pesquisaProdutoID:
+                if pesquisaID == item["ID"]:
+                    print(f"Produto: {item['nome']} encontrado. Quantidade: {item['quantidade']}. Preço: R${item['preco']}.")
+                    break
+            else:
+                print("O produto solicitado não está em nosso estoque.")
+
+        else:
+            pesquisa_nome = pesquisa.lower()  # para tornar a pesquisa case-insensitive
+            for item in pesquisa_produto_nome:
+                if pesquisa_nome == item["nome"].lower():
+                    print(f"ID do produto {item['nome']}: {item['ID']}. Quantidade: {item['quantidade']}. Preço: R${item['preco']}.")
+                    break
+            else:
+                print("O produto solicitado não está em nosso estoque.")
+
+
+   # def pesquisar_produto_nome(self):
+    #    pesquisa_nome=input("Digite o nome para pesquisar o produto: ")
+     #   pesquisa_produto_nome=pilhaproduto._items
+
+        # for item in pesquisa_produto_nome:
+        #     if pesquisa_nome == item["nome"]:
+        #         print(f"ID do produto {item["nome"]}: {item["ID"]}. Quantidade: {item["quantidade"]}. Preço: R${item["preco"]}.\n")
+        #         return
+        # print("O produto solicitado não está em nosso estoque.")
 
 
     def salvar_txt(self):
         with open("estoque_legivel.txt", "w", encoding="utf-8") as f:
             for item in pilhaproduto.to_list():
                 f.write(f"ID: {item['ID']} | Nome: {item['nome']} | Quantidade: {item['quantidade']}\n")
-   
 
-
-
+    def carregar_txt(self):
+        self._items = []
+        with open("estoque_legivel.txt", "r", encoding="utf-8") as f:
+            conteudo = f.read()
+            self._items.append(conteudo)
+            
 
 # Escolha: 3
 # Digite o ID do produto: 101

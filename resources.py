@@ -1,7 +1,13 @@
 import os
+arquivo = "estoque_legivel.txt"
 
 def limpar_tela():
     return os.system('cls' if os.name == 'nt' else 'clear')
 
 def continuar():
     input("Pressione ENTER para continuar. ")
+
+
+# if not os.path.exists(arquivo):
+#     with open(arquivo, "w", encoding="utf-8") as f:
+#         pass  
