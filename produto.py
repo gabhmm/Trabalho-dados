@@ -14,7 +14,9 @@ class Produto:
         self.quantidade = None
         self.preco = None
 
-        self.carregar_txt()
+        items = self.carregar_txt()
+        print(items)
+
 
     def cadastrar_produto(self, nome, quantidade, preco):
         self.ID += 1
@@ -45,7 +47,6 @@ class Produto:
 
     def mostrar_produto(self):
         print("--- ESTOQUE ATUAL --- \n")
-
 
         items = pilhaproduto._items
 
@@ -190,6 +191,9 @@ class Produto:
         with open("estoque_legivel.txt", "r", encoding="utf-8") as f:
             conteudo = f.read()
             self._items.append(conteudo)
+
+
+            return self._items
             
 
 # Escolha: 3
