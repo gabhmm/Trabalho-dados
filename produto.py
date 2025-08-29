@@ -9,10 +9,11 @@ cliente = Cliente()
 pilha_produtos_deletados=Pilha()
 class Produto:
     def __init__(self):
-     #   self.ID = 0
-      #  self.nome = None
-      #  self.quantidade = None
-      #  self.preco = None
+        self.ID = 0
+        self.nome = None
+        self.quantidade = None
+        self.preco = None
+
         self.carregar_txt()
 
     def cadastrar_produto(self, nome, quantidade, preco):
@@ -46,10 +47,10 @@ class Produto:
         print("--- ESTOQUE ATUAL --- \n")
 
 
-        # items = pilhaproduto._items
+        items = pilhaproduto._items
 
-        # for item in items:
-        #     print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]:.2f}")
+        for item in items:
+            print(f"ID: {item["ID"]} | Nome: {item["nome"]} | Quantidade: {item["quantidade"]} | Preço: {item["preco"]:.2f}")
 
     def excluir_produto(self):
         pilhaproduto.pop()
@@ -88,7 +89,7 @@ class Produto:
                 
                 elif item["quantidade"] == quantidade_venda:
                     pilha_produtos_deletados.push(items.pop(i))
-                    print(pilha_produtos_deletados)
+                    #print(pilha_produtos_deletados)
                 else:    
                     item["quantidade"] -= quantidade_venda
                 valor_gasto = quantidade_venda*(item['preco'])
