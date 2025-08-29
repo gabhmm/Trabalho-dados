@@ -110,7 +110,6 @@ while True:
         case '7':
             if pilha_acoes.is_empty():
                 print("Não existe alteração feita")
-                limpar_tela()
                 continuar()
                 limpar_tela()
                 continue

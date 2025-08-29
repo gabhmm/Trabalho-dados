@@ -5,7 +5,7 @@ from fila import Fila
 fila_venda = Fila()
 pilhaproduto = Pilha()
 cliente = Cliente()
-
+pilha_produtos_deletados=Pilha()
 class Produto:
     def __init__(self):
         self.ID = 0
@@ -84,12 +84,12 @@ class Produto:
                 if item["quantidade"] < quantidade_venda:
                     print("Quantidade de produtos insuficientes")
                     return
-                item["quantidade"] -= quantidade_venda
-
-                if item["quantidade"] == 0:
-
-                    items.pop(i)
-
+                
+                elif item["quantidade"] == quantidade_venda:
+                    pilha_produtos_deletados.push(items.pop(i))
+                    print(pilha_produtos_deletados)
+                else:    
+                    item["quantidade"] -= quantidade_venda
                 valor_gasto = quantidade_venda*(item['preco'])
 
                 nova_venda = {
@@ -114,6 +114,10 @@ class Produto:
         for item in items:
             if item["nome"] == produto["nome"]:
                 item["quantidade"] += produto["quantidade"]
+                break
+            else:
+                produto_deletado= pilha_produtos_deletados.peek()
+                pilhaproduto.push(produto_deletado)
                 break
 
         fila_venda.dequeue()
