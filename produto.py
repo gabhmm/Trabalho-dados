@@ -1,3 +1,4 @@
+import json
 from cliente import Cliente
 from pilha import Pilha
 from fila import Fila
@@ -141,7 +142,7 @@ class Produto:
         print(f"Total de vendas: {total:.2f}")
 
 
-    def pesquisar_produto(self):
+    def pesquisar_produto_id(self):
         pesquisaID = int(input("Digite ID para fazer a pesquisa do produto: "))
         pesquisaProdutoID = pilhaproduto._items
 
@@ -151,6 +152,21 @@ class Produto:
                 return
         print("O produto solicitado não está em nosso estoque.")
 
+    def pesquisar_produto_nome(self):
+        pesquisa_nome=input("Digite o nome para pesquisar o produto: ")
+        pesquisa_produto_nome=pilhaproduto._items
+
+        for item in pesquisa_produto_nome:
+            if pesquisa_nome == item["nome"]:
+                print(f"ID do produto {item["nome"]}: {item["ID"]}. Quantidade: {item["quantidade"]}. Preço: R${item["preco"]}.\n")
+                return
+        print("O produto solicitado não está em nosso estoque.")
+
+
+    def salvar_txt(self):
+        with open("estoque_legivel.txt", "w", encoding="utf-8") as f:
+            for item in pilhaproduto.to_list():
+                f.write(f"ID: {item['ID']} | Nome: {item['nome']} | Quantidade: {item['quantidade']}\n")
    
 
 

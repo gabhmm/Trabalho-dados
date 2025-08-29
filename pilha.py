@@ -41,4 +41,7 @@ class Pilha:
     # clear
     def clear(self):
         self._items = []
+    
+    def to_list(self):
+        return self._items
 
