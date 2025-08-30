@@ -79,7 +79,7 @@ while True:
             produto.salvar_txt()
 
         case '4':
-            produto.mostrar_pr4oduto()
+            produto.mostrar_produto()
             print()
             continuar()
             limpar_tela()
