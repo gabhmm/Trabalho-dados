@@ -5,7 +5,9 @@ Organização e Abstração na Programação
 ## 👨‍🏫 Professor(a)
 Augusto Ortolan
 ## 👨‍💻 Integrantes
+
 - Gabriel Magalhães | 1137910
+- Gustavo Barbosa Portela | 1137640
 
 ## 🛠 Funcionalidades
 - Cadastro de produtos e clientes
