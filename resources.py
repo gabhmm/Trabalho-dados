@@ -6,8 +6,3 @@ def limpar_tela():
 
 def continuar():
     input("Pressione ENTER para continuar. ")
-
-
-# if not os.path.exists(arquivo):
-#     with open(arquivo, "w", encoding="utf-8") as f:
-#         pass  

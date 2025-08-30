@@ -18,18 +18,14 @@ while True:
     print("8 - Exibir valor total do estoque ")
     print("9 - Exibir valor total de vendas realizadas")
     print("10 - Exibir clientes e valores totais gastos")
-  #  print("11 - Pesquisar Produto por ID")
     print("11 - Pesquisar Produto por ID ou NOME")
-   # print("12 - Pesquisar produto por nome")
-   # print("13 - Salvar em arquivo de texto")
-    print("14 - Sair")
+    print("12 - Sair")
 
     opcao = input("Escolha a opção desejada: ")
     limpar_tela()
 
     match opcao:
    
-        # CADASTRAR CLIENTE
         case '1':
 
             while True:
@@ -45,9 +41,7 @@ while True:
                     limpar_tela()
                     print("Erro! Digite um nome válido.")
                     continue
-
-
-        # LISTAR CLIENTES    
+   
         case '2':
             limpar_tela()
             print("LISTA DE CLIENTES:\n")
@@ -55,8 +49,6 @@ while True:
             continuar()
             limpar_tela()
 
-
-        # CADASTRAR PRODUTOS
         case '3': 
             produto_cadastrar = input("Digite o nome do produto que deseja cadastrar: ")
             
@@ -86,23 +78,18 @@ while True:
             pilha_acoes.push("cadastrar_produto")
             produto.salvar_txt()
 
-
-        #LISTAR PRODUTOS
         case '4':
-            produto.mostrar_produto()
+            produto.mostrar_pr4oduto()
             print()
             continuar()
             limpar_tela()
 
-
-        #REALIZAR VENDAS
         case '5':
             produto.venda()
             pilha_acoes.push("venda")
             continuar()
             limpar_tela()
 
-        #VER FILA DE VENDAS
         case '6':
             limpar_tela()
             print("--- VENDAS REALIZADAS --- \n")
@@ -110,7 +97,6 @@ while True:
             continuar()
             limpar_tela()
             
-        #DESFAZER ULTIMA OPERACAO
         case '7':
             if pilha_acoes.is_empty():
                 print("Não existe alteração feita")
@@ -131,8 +117,6 @@ while True:
                     produto.desfazer_venda()
                     pilha_acoes.pop()
 
-
-        #EXIBIR TOTAL DO ESTOQUE
         case '8':
             produto.valor_total_estoque()
             print()
@@ -147,9 +131,6 @@ while True:
             continuar()
             limpar_tela()
 
-
-
-        #EXIBIR CLIENTES E VALORES TOTAIS GASTOS
         case '10':
             limpar_tela()
             print("--- CLIENTES E VALORES GASTOS--- \n")            
@@ -160,19 +141,11 @@ while True:
         case '11':
             produto.pesquisar_produto_id_nome()
 
-        # case '12':
-        #     produto.pesquisar_produto_nome()
-        
-#        case '13':
-#            produto.salvar_txt()
-
         case '14':
             limpar_tela()
             print('Obrigado por usar nosso sistema! Volte sempre!')
             break
             
-
-        #SE NENHUMA OPCAO
         case _:
             limpar_tela()
             print('Digite um digito válido!')

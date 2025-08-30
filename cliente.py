@@ -1,7 +1,7 @@
 from pilha import Pilha
 
 pilha_clientes = Pilha()
-pilha_id=Pilha()
+pilha_id = Pilha()
 
 class Cliente:
     def __init__(self):

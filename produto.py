@@ -7,16 +7,14 @@ fila_venda = Fila()
 pilhaproduto = Pilha()
 cliente = Cliente()
 pilha_produtos_deletados=Pilha()
+
 class Produto:
     def __init__(self):
+
         self.ID = 0
         self.nome = None
         self.quantidade = None
         self.preco = None
-
-        items = self.carregar_txt()
-        print(items)
-
 
     def cadastrar_produto(self, nome, quantidade, preco):
         self.ID += 1
@@ -161,7 +159,7 @@ class Produto:
                 print("O produto solicitado não está em nosso estoque.")
 
         else:
-            pesquisa_nome = pesquisa.lower()  # para tornar a pesquisa case-insensitive
+            pesquisa_nome = pesquisa.lower()
             for item in pesquisa_produto_nome:
                 if pesquisa_nome == item["nome"].lower():
                     print(f"ID do produto {item['nome']}: {item['ID']}. Quantidade: {item['quantidade']}. Preço: R${item['preco']}.")
@@ -169,35 +167,7 @@ class Produto:
             else:
                 print("O produto solicitado não está em nosso estoque.")
 
-
-   # def pesquisar_produto_nome(self):
-    #    pesquisa_nome=input("Digite o nome para pesquisar o produto: ")
-     #   pesquisa_produto_nome=pilhaproduto._items
-
-        # for item in pesquisa_produto_nome:
-        #     if pesquisa_nome == item["nome"]:
-        #         print(f"ID do produto {item["nome"]}: {item["ID"]}. Quantidade: {item["quantidade"]}. Preço: R${item["preco"]}.\n")
-        #         return
-        # print("O produto solicitado não está em nosso estoque.")
-
-
     def salvar_txt(self):
         with open("estoque_legivel.txt", "w", encoding="utf-8") as f:
             for item in pilhaproduto.to_list():
                 f.write(f"ID: {item['ID']} | Nome: {item['nome']} | Quantidade: {item['quantidade']}\n")
-
-    def carregar_txt(self):
-        self._items = []
-        with open("estoque_legivel.txt", "r", encoding="utf-8") as f:
-            conteudo = f.read()
-            self._items.append(conteudo)
-
-
-            return self._items
-            
-
-# Escolha: 3
-# Digite o ID do produto: 101
-# Digite a quantidade: 2
-# Venda realizada com sucesso!
-# (Valor total: R$7000.00) 
