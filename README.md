@@ -8,6 +8,7 @@ Augusto Ortolan
 
 - Gabriel Magalhães | 1137910
 - Gustavo Barbosa Portela | 1137640
+- Bruno Galvagni | 1137862
 
 ## 🛠 Funcionalidades
 - Cadastro de produtos e clientes
